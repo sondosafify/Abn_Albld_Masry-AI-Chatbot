@@ -1,4 +1,3 @@
-# Abn_Albld_Masry-AI-Chatbot
 # Abn_Albld_Masry-AI-Chatbot 🇪🇬🤖
 
 **"Sahbi"** is an AI chatbot that talks like a true Egyptian! It's designed to be friendly, funny, and respectful, using the Egyptian slang dialect.
