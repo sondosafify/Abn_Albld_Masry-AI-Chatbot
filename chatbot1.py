@@ -10,14 +10,21 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # استخدامه في مشروعك
-api_key = os.getenv("GROQ_API_KEY")
 class MasryChatbot:
     def __init__(self):
-        # تم تحديث الموديل لـ llama-3.3-70b-versatile عشان يتجنب خطأ الـ decommissioned
+        # 1. بنسحب المفتاح من الـ Secrets بتاعة ستريمليت
+        api_key = os.getenv("GROQ_API_KEY") 
+        
+        # 2. تأكيد إن المفتاح وصل بالسلامة
+        if not api_key:
+            st.error("يا برنس المفتاح مش موجود في الـ Secrets! اتأكد إنك كاتبه صح في إعدادات الموقع.")
+            return
+
+        # 3. تعريف الموديل مع كتابة اسم البراميتر صح (groq_api_key سمول)
         self.llm = ChatGroq(
             model_name="llama-3.3-70b-versatile", 
             temperature=0.6,
-            groq_api_key=api_key
+            groq_api_key=api_key 
         )
 
         self.store = {}
